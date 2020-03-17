@@ -17,7 +17,7 @@ function clean() {
     return del([`dist/${slide}`]);
 }
 
-async function buildEach() {
+function build(cb) {
     let config = {
         title: slide,
         desc: "使用murph-it创建的课件"
@@ -37,10 +37,8 @@ async function buildEach() {
     }
 
     marpCli(`marp ${root}/index.md  ${args} -o dist/${slide}/index.html`);
-}
 
-function build(slide) {
-    buildEach(slide)
+    return cb();
 }
 
 function copy(cb) {
@@ -64,4 +62,4 @@ function deploy() {
 
 exports.default = series(clean, copy, build);
 
-exports.deploy = series(deploy);
+exports.deploy = series(clean, copy, build, deploy);
