@@ -1,0 +1,40 @@
+{
+  "name": "excel",
+  "version": "1.0.0",
+  "description": "基于Excel的数据处理与分析",
+  "scripts": {
+    "build": "gulp -f build.js",
+    "serve": "http-server dist -p 5000",
+    "deploy": "gulp -f deploy.js"
+  },
+  "keywords": [
+    "excel",
+    "slide"
+  ],
+  "author": "murph",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@marp-team/marp-cli": "^0.17.2",
+    "del": "^5.1.0",
+    "gh-pages": "^2.2.0",
+    "github-pages": "^3.0.2",
+    "gulp": "^4.0.2",
+    "http-server": "^0.12.1"
+  },
+  "github-pages": {
+    "src": "./dist",
+    "remote": {
+      "user": "MurphyL",
+      "repo": "slides",
+      "ref": "heads/gh-pages"
+    },
+    "commit": {
+      "message": "commit made by me",
+      "author": {
+        "name": "murph",
+        "email": "murphyl@outlook.com"
+      }
+    }
+  }
+}
